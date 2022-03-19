@@ -85,19 +85,19 @@ const HeaderContainer = () => {
                                             >
                                                 <i className="fas fa-wrench"></i>{' '}
                                             </Link>
-                                            <Link
+                                            {/* <Link
                                                 className="nav-item text-white"
                                                 to="/admin"
                                             >
                                                 <i className="fas fa-user-shield"></i>{' '}
-                                            </Link>
+                                            </Link> */}
                                         </div>
                                         <div className="mr-3">
                                             <ul className="navbar-nav">
                                                 <li className="nav-item dropdown">
                                                     <Link
                                                         className="nav-link dropdown-toggle"
-                                                        href="#"
+                                                        to="#"
                                                         id="navbarDropdown"
                                                         role="button"
                                                         data-toggle="dropdown"

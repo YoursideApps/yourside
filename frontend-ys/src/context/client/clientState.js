@@ -67,12 +67,14 @@ const ClientState = (props) => {
 
         if (token) {
             tokenAuth(token)
+            getConfiguration()
         }
 
         try {
             var headers = {
                 'x-auth-token': token,
             }
+
             const response = await clienteAxios.get('/auth', { headers })
 
             dispatch({
@@ -114,7 +116,6 @@ const ClientState = (props) => {
     }
 
     const deleteArticleToSesionTrolley = async (article) => {
-      
         dispatch({
             type: ClientConstant.DELETE_ARTICLE_TO_TROLLEY,
             payload: article,
@@ -149,7 +150,7 @@ const ClientState = (props) => {
                 authenticatedClient,
                 addArticleToSesionTrolley,
                 purchaseClient,
-                deleteArticleToSesionTrolley
+                deleteArticleToSesionTrolley,
             }}
         >
             {props.children}

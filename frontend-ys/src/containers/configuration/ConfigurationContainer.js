@@ -1,4 +1,4 @@
-import React, { useState, useContext, Fragment } from 'react'
+import React, { useState, useContext, Fragment, useEffect } from 'react'
 import AppContext from '../../context/app/appContext'
 import { useHistory } from 'react-router-dom'
 import { ButtonCancel, ButtonItemView } from '../../components/button'
@@ -16,17 +16,27 @@ const ConfigurationContainer = () => {
     } = appContext
 
     let history = useHistory()
+    useEffect(() => {
+        if (configuration) {
+            onSetConfiguration()
+        }
+    }, [configuration])
 
-    const [sistemConfiguration, saveSistemConfiguration] = useState({
-        name: configuration.name ? configuration.name : '',
-        adminCode: configuration.name ? configuration.adminCode : '',
-        demo: configuration.name ? configuration.demo : null,
-        lastSellName: configuration.name ? configuration.lastSellName : null,
-        useDecimal: configuration.name ? configuration.useDecimal : null,
-        cellPhone: configuration.name ? configuration.cellPhone : null,
-        address: configuration.name ? configuration.address : null,
-        id: configuration.name ? configuration.id : null,
-    })
+    const [sistemConfiguration, saveSistemConfiguration] = useState({})
+    const onSetConfiguration = () => {
+        saveSistemConfiguration({
+            name: configuration.name ? configuration.name : '',
+            adminCode: configuration.name ? configuration.adminCode : '',
+            demo: configuration.name ? configuration.demo : null,
+            lastSellName: configuration.name
+                ? configuration.lastSellName
+                : null,
+            useDecimal: configuration.name ? configuration.useDecimal : null,
+            cellPhone: configuration.name ? configuration.cellPhone : null,
+            address: configuration.name ? configuration.address : null,
+            id: configuration.name ? configuration.id : null,
+        })
+    }
 
     const onChange = (e) => {
         saveSistemConfiguration({
