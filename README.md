@@ -44,7 +44,7 @@ npm run nodemon
 ```
 cd yourside/frontend-ys
 npm install
-ng serve
+npm run start
 ```
 
 ## Trello 📊
