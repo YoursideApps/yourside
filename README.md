@@ -5,7 +5,7 @@
 <img href src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
 <img href src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"/>
 
-**Yourside** es una tienda online que permite a los usuarios adquirir productos desde la web. Los clientes pueden realizar pedidos fácilmente desde la app, para luego retirarlos personalmente en la tienda.
+**Yourside** es una tienda online que permite a los usuarios adquirir productos desde la web o desde la app móvil disponible para iOS y Android. Los clientes pueden realizar pedidos fácilmente desde la app, para luego retirarlos personalmente en la tienda.
 
 ## Project Manager 👔
 
@@ -45,6 +45,14 @@ npm run nodemon
 cd yourside/frontend-ys
 npm install
 npm run start
+```
+
+### Install Mobile dependencies & start
+
+```
+cd yourside/mobile-ys
+npm install
+ionic serve
 ```
 
 ## Trello 📊

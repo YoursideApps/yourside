@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="purple" defaultHref='/'></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ingreso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="container">
+    <ion-item>
+      <ion-input name="email" type="email" placeholder="Correo electronico" [(ngModel)]='client.email' required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input name="password" type="password" placeholder="Contraseña" [(ngModel)]='client.password' required></ion-input>
+    </ion-item>
+    <ion-button color="purple" style="margin: 10px 0;" (click)='validate()'>Ingresar</ion-button>
+    <p>¿No estas registrado aun? <a [routerLink]="['/signup']">Registrate</a></p>
+    <p>Regresar al <a [routerLink]="['/home']">Inicio</a></p>
+  </div>
+</ion-content>
