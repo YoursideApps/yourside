@@ -115,8 +115,8 @@ class articleController {
 
             await ticket.save()
             let condiguracionId = configuration._id
-            await Configuration.replaceOne(
-                { condiguracionId },
+            await Configuration.findOneAndUpdate(
+                { _id: condiguracionId},
                 { lastSellName: configuration.lastSellName++ }
             )
 
