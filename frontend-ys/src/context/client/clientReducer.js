@@ -32,22 +32,21 @@ export default (state, action) => {
                 authenticated: true,
                 client: action.payload.client[0],
                 loading: false,
-                admin: action.payload.client.role === 'ADMIN_ROLE' ? true : false,
-                email: action.payload.client[0].email
+                admin:
+                    action.payload.client.role === 'ADMIN_ROLE' ? true : false,
+                email: action.payload.client[0].email,
             }
         case ClientConstant.ADD_ARTICLE_TO_TROLLEY:
             return {
                 ...state,
-                trolley: [...state.trolley, action.payload]
+                trolley: [...state.trolley, action.payload],
             }
         case ClientConstant.DELETE_ARTICLE_TO_TROLLEY:
-     
             return {
                 ...state,
                 trolley: state.trolley.filter(
                     (article) => article.id !== action.payload
-                )
-                
+                ),
             }
         case ClientConstant.SUCCESSFULL_PURCHASE_CLIENT:
             return {

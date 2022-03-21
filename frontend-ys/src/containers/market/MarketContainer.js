@@ -67,10 +67,18 @@ const MarketContainer = () => {
         setIsOpen(false)
     }
     const notify = () => toast.success('Artículo agregado al carrito')
+    const error = () =>
+        toast.error('Debes iniciar sesión para comprar un artículo')
     const addArticleTrolley = async () => {
-        addArticleToSesionTrolley(articleView)
-        notify()
-        closeModal()
+        const isAuthenticated = localStorage.getItem('token') ? true : false
+        if (isAuthenticated) {
+            addArticleToSesionTrolley(articleView)
+            notify()
+            closeModal()
+        } else {
+            error()
+            closeModal()
+        }
     }
 
     return (
@@ -126,7 +134,7 @@ const MarketContainer = () => {
                                         {' '}
                                         <h4 className="precion_ahora">
                                             ${articleView.sellPriceOffer} (
-                                            {articleView.offer} %{' '} de Descuento)
+                                            {articleView.offer} % de Descuento)
                                         </h4>{' '}
                                     </div>
                                 ) : (
