@@ -58,7 +58,7 @@ const OffertList = () => {
     const getRow = () => {
         return offerList.map((offerList) => {
             return {
-                key: offerList._id,
+                key: offerList.id,
                 name: offerList.name,
                 percent: offerList.percent,
                 disableDate: offerList.disableDate,

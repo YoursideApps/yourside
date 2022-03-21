@@ -17,10 +17,9 @@ const ListReceiptIndividual = () => {
     let totalPrice = 0
     const getRow = () => {
         if (comprobante) {
-            totalPrice = comprobante.articles.reduce(
-                (prev, current) => prev.sellPrice + current.sellPrice
-            )
-            console.log(totalPrice)
+            for (let el of comprobante.articles) {
+                totalPrice += el.sellPrice
+            }
             return comprobante.articles.map((article, i) => {
                 return {
                     index: i + 1,

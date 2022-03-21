@@ -127,7 +127,7 @@ const AppState = (props) => {
 
     const deleteOffer = async (offerId) => {
         try {
-            await clienteAxios.put(`/offer/${offerId}`)
+            await clienteAxios.put(`/offers/${offerId}`)
             getOffers()
         } catch {
             handleModal('MensajeRegistro', true)
@@ -335,10 +335,10 @@ const AppState = (props) => {
 
     const getOffers = async () => {
         try {
-            const respuesta = await clienteAxios.get(`/offer`)
+            const respuesta = await clienteAxios.get(`/offers`)
             dispatch({
                 type: AppConstant.GET_OFFERS,
-                payload: respuesta.data.offers,
+                payload: respuesta.data.response,
             })
         } catch {
             handleModal('MensajeRegistro', true)
@@ -370,7 +370,7 @@ const AppState = (props) => {
 
     const newOffer = async (data) => {
         try {
-            const response = await clienteAxios.post('/offer', data)
+            const response = await clienteAxios.post('/offers', data)
             setMessage(response.data.message)
             getOffers()
         } catch (error) {
