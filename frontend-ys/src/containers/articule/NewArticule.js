@@ -35,9 +35,7 @@ const NewArticule = () => {
         amount: currentState.amount ? currentState.amount : null,
         costPrice: currentState.costPrice ? currentState.costPrice : null,
         sellPrice: currentState.sellPrice ? currentState.sellPrice : null,
-        negativeStock: currentState.negativeStock
-            ? currentState.negativeStock
-            : null,
+        negativeStock: 1,
         minimum: currentState.minimum ? currentState.minimum : null,
         articleType: currentState.articleTypeId
             ? currentState.articleTypeId
@@ -229,7 +227,7 @@ const NewArticule = () => {
                             />
                         </div>
 
-                        <div className="form-group">
+                        {/* <div className="form-group">
                             <Input
                                 className={'form-control'}
                                 type={'number'}
@@ -243,7 +241,7 @@ const NewArticule = () => {
                                 }
                                 onChange={onChange}
                             />
-                        </div>
+                        </div> */}
 
                         <div className="form-group">
                             <Input
