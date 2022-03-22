@@ -74,7 +74,9 @@ class articleController {
             //ARMADO DEL COMPROBANTE DETALLE
             for (const element of body) {
                 idArray.push(element.id)
-                totalPrice += element.sellPrice
+                totalPrice += element.sellPriceOffer
+                    ? element.sellPriceOffer
+                    : element.sellPrice
             }
 
             let comprobanteDetalle = new ReceiptDetail({
@@ -116,7 +118,7 @@ class articleController {
             await ticket.save()
             let condiguracionId = configuration._id
             await Configuration.findOneAndUpdate(
-                { _id: condiguracionId},
+                { _id: condiguracionId },
                 { lastSellName: configuration.lastSellName++ }
             )
 

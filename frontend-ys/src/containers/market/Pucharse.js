@@ -58,7 +58,10 @@ const Pucharse = () => {
                     TOTAL:
                     {
                         (trolley.map(
-                            (articulo) => (contador += articulo.sellPrice)
+                            (x) =>
+                                (contador += x.sellPriceOffer
+                                    ? x.sellPriceOffer
+                                    : x.sellPrice)
                         ),
                         (<p>{`$ ${contador}`}</p>))
                     }

@@ -17,15 +17,19 @@ const ListReceiptIndividual = () => {
     let totalPrice = 0
     const getRow = () => {
         if (comprobante) {
-            for (let el of comprobante.articles) {
-                totalPrice += el.sellPrice
+            for (let x of comprobante.articles) {
+                totalPrice += x.sellPriceOffer ? x.sellPriceOffer : x.sellPrice
             }
             return comprobante.articles.map((article, i) => {
                 return {
                     index: i + 1,
                     code: article.code,
                     name: article.name,
-                    price: formatter.format(article.sellPrice),
+                    price: formatter.format(
+                        article.sellPriceOffer
+                            ? article.sellPriceOffer
+                            : article.sellPrice
+                    ),
                 }
             })
         }
