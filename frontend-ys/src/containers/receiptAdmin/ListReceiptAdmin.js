@@ -3,7 +3,7 @@ import AppContext from '../../context/app/appContext'
 import { Input, Button, Space, Table } from 'antd'
 import { DeleteOutlined, SearchOutlined } from '@ant-design/icons'
 import Swal from 'sweetalert2'
-
+import { formatter, formatDate } from './../../utils/utils'
 const ListReceiptAdmin = () => {
     const appContext = useContext(AppContext)
     const { traerComprobantesAdmin, comprobantes } = appContext
@@ -124,8 +124,8 @@ const ListReceiptAdmin = () => {
                 name: comprobante.number,
                 client: comprobante.client.name,
                 email: comprobante.client.email,
-                date: comprobante.date,
-                price: comprobante.price,
+                date: formatDate(comprobante.date),
+                price: formatter.format(comprobante.price),
             }
         })
     }
